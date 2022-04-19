@@ -36,5 +36,9 @@ describe("Gilded Rose", function() {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toBe(3);
   });
-
+  it("create an object named 'Conjured Mana Cake' who's quality decreases by 2", function() {
+    const gildedRose = new Shop([new Item('Conjured Mana Cake', 3, 6)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(4);
+  });
 });
