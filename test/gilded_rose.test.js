@@ -13,9 +13,28 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(50);
   });
 
-  it("create an object named 'Sulfuras, Hand of Ragnaros' with a quality of 80", function() {
+  it("create an object named 'Sulfuras, Hand of Ragnaros' with a unchangable quality of 80", function() {
     const gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', 0, 0)]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toBe(80);
   });
+
+  it("create an object named 'Backstage passes to a TAFKAL80ETC concert' that increases by 4", function() {
+    const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 1, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(4);
+  });
+
+  it("create an object named 'Backstage passes to a TAFKAL80ETC concert' that increases by 1", function() {
+    const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 15, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(1);
+  });
+
+  it("create an object named 'Backstage passes to a TAFKAL80ETC concert' that increases by 3", function() {
+    const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 9, 0)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(3);
+  });
+
 });
