@@ -36,9 +36,25 @@ describe("Gilded Rose", function() {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toBe(3);
   });
+  it("create an object named 'Fancy Shoe' who's quality decreases by 1", function() {
+    const gildedRose = new Shop([new Item('Fancy Shoe', 3, 6)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(5);
+  });
+  it("create an object named 'Fancy Shoe' who's quality decreases by 2", function() {
+    const gildedRose = new Shop([new Item('Fancy Shoe', 0, 6)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(4);
+  });
   it("create an object named 'Conjured Mana Cake' who's quality decreases by 2", function() {
     const gildedRose = new Shop([new Item('Conjured Mana Cake', 3, 6)]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toBe(4);
   });
+  it("create an object named 'Conjured Mana Cake' who's quality decreases by 4", function() {
+    const gildedRose = new Shop([new Item('Conjured Mana Cake', -1, 6)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(2);
+  });
+
 });

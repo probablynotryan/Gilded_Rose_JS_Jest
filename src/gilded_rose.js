@@ -33,11 +33,13 @@ class Shop {
       }
 
       if (this.items[i].name.includes('Conjured')) {
-        this.items[i].quality = Math.max(0, this.items[i].quality - 2); // this is assuming quality degrading doesn't double again after sellIn date has exceeded
+        (this.items[i].sellIn < 1) ? this.items[i].quality -= 4 : this.items[i].quality -= 2;
+        this.items[i].quality = Math.max(0, this.items[i].quality);
         continue;
       }
 
-      this.items[i].quality = Math.max(0, this.items[i].quality - (this.items[i].sellIn < 1) && 2 || 1)
+      (this.items[i].sellIn < 1) ? this.items[i].quality -= 2 : this.items[i].quality -= 1;
+      this.items[i].quality = Math.max(0, this.items[i].quality);
 
     }
 
